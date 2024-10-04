@@ -1,0 +1,17 @@
+t_user:
+  - login: test
+    password: $2a$12$8nk/P1Qs.squN04s.CGL4.ChV8FiVLv6Ue4vyMnq424GoUf8QyCbW
+  - login: admin
+    password: $2a$12$HZTnZGipo4iDhOng3isxturFHth1wbpr9B9WWsUHhL34hBsRpzo3G
+
+t_role:
+  - id: 1
+    role_name: ROLE_USER
+  - id: 2
+    role_name: ROLE_ADMIN
+
+t_user_roles:
+  - user_login: test
+    roles_id: 1
+  - user_login: admin
+    roles_id: 2

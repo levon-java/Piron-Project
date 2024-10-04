@@ -1,0 +1,13 @@
+ext {
+    lombokVersion = '1.18.32'
+    junitVersion = '5.10.0'
+    httpclient5Version = '5.3.1'
+    mockitoVersion = '5.12.0'
+    jacksonVersion = '2.18.0'
+    testcontainersVersion = '1.20.1'
+    jakartaVersion = '3.0.2'
+    springCloudVersion = '4.0.4'
+    jsonwebtokenVersion = '0.11.5'
+    databaseRiderVersion = '1.35.0'
+    liquibaseVersion = '4.29.2'
+}

@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/user_db}
+    username: ${DATABASE_USERNAME:admin}
+    password: ${DATABASE_PASSWORD:admin}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog.xml
+
+jwt:
+  secretKey: "73c82b77c36a01cb0c956261ae5caf177ba72ae11ebfb4b757ff52ae444f0cd6"
+  expiration: 1800000
+
+

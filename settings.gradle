@@ -1,0 +1,21 @@
+pluginManagement {
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == 'org.springframework.boot') {
+                useModule("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+            }
+            if (requested.id.id == 'io.spring.dependency-management') {
+                useModule("io.spring.gradle:dependency-management-plugin:$dependencyManagementVersion")
+            }
+        }
+    }
+}
+rootProject.name = 'PironProject'
+include 'user-service'
+include 'api-gateway'
+include 'common'
+
+ext {
+    springBootVersion = '3.1.4'
+    dependencyManagementVersion = '1.1.5'
+}

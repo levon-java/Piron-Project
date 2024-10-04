@@ -1,0 +1,34 @@
+apply from: 'versions.gradle'
+allprojects {
+    apply plugin: 'java'
+
+    group = 'com.piron'
+    version = '1.0.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+subprojects {
+    dependencies {
+        compileOnly "org.projectlombok:lombok:$lombokVersion"
+        annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+        testImplementation platform("org.junit:junit-bom:$junitVersion")
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+    }
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

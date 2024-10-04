@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="insert_default_admin_user" author="Levon Poghosyan">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sqlCheck expectedResult="0">
+                    SELECT COUNT(*) FROM t_user WHERE login = 'admin'
+                </sqlCheck>
+            </not>
+        </preConditions>
+
+        <insert tableName="t_user">
+            <column name="login" value="admin"/>
+            <column name="password" value="$2a$12$9Er36KedFprp9Gy6PwY5N.ueejdTv6NgFQ5gsWiwA.niO4a42e2FC"/>
+        </insert>
+
+        <insert tableName="t_role">
+            <column name="id" value="1"/>
+            <column name="role_name" value="ROLE_ADMIN"/>
+        </insert>
+
+        <insert tableName="t_user_roles">
+            <column name="user_login" value="admin"/>
+            <column name="roles_id" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
